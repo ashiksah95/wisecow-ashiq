@@ -46,6 +46,7 @@ jobs:
 
       - name: Create kubeconfig
         run: |
+          cat /root/wisecow/ashiq
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
           cat $HOME/.kube/config
