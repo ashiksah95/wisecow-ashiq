@@ -28,7 +28,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: your-dockerhub-username/wisecow:latest
+          tags: mohddock/imagecollection:latest
 
   deploy:
     runs-on: ubuntu-latest
