@@ -50,8 +50,8 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
           cat $HOME/.kube/config
 
-      - name: Set environment variables
-        run: echo "KUBECONTEXT=${{ secrets.KUBE_CONTEXT }}" >> $GITHUB_ENV
+      - name: use context
+        run: kubectl config use-context kubernetes-admin@kubernetes
 
       - name: Use Kubernetes context
         run: kubectl config use-context ${{ env.KUBE_CONTEXT }}
