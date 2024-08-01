@@ -43,11 +43,13 @@ jobs:
         with:
           version: 'latest'
 
-      - name: Create kubeconfih
+      - name: Create kubeconfig
         run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
           cat ${HOME}/.kube/config
+      - name: use context
+         kubectl config use-context octobay-api
 
       - name: Verify Kubernetes API access
         run: |
