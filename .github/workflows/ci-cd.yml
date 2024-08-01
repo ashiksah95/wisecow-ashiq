@@ -55,5 +55,5 @@ jobs:
 
       - name: get pods
         run: |
-          kubectl get pods -n test
+          kubectl get pods 
 
