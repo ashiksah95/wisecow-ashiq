@@ -44,20 +44,15 @@ jobs:
           version: 'latest'
 
       - name: Create kubeconfig
-      - run: |
+        run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
           cat ${HOME}/.kube/config
       - name: use context
-      - run: kubectl config use-context octobay-api
-
-      - name: Verify Kubernetes API access
-      - run: |
-          kubectl cluster-info
-          kubectl get nodes
+        run: kubectl config use-context octobay-api
 
       - name: Deploy to Kubernetes
-      -  run: |
+        run: |
           kubectl apply -f kubernetes/deployment.yaml --validate=false
           kubectl apply -f kubernetes/service.yaml --validate=false
           kubectl apply -f kubernetes/ingress.yaml --validate=false
