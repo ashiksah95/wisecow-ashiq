@@ -57,5 +57,5 @@ jobs:
         run: |
           kubectl apply -f kubernetes/deployment.yaml -n ${{ secrets.KUBE_NAMESPACE }} --validate=false
           kubectl apply -f kubernetes/service.yaml -n ${{ secrets.KUBE_NAMESPACE }} --validate=false
-          kubectl apply -f kubernetes/ingress.yaml -n ${{ secrets.KUBE_NAMESPACE }} --validate=false
+          
 
