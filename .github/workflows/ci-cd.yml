@@ -44,7 +44,7 @@ jobs:
           version: 'latest'
 
       - name: Create kubeconfig
-        run: |
+      - run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
           cat ${HOME}/.kube/config
@@ -52,7 +52,7 @@ jobs:
          kubectl config use-context octobay-api
 
       - name: Verify Kubernetes API access
-        run: |
+      - run: |
           kubectl cluster-info
           kubectl get nodes
 
