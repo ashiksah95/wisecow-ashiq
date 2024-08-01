@@ -53,9 +53,7 @@ jobs:
       - name: use context
         run: kubectl config use-context kubernetes-admin@kubernetes
 
-      - name: Deploy to Kubernetes
+      - name: get pods
         run: |
-          kubectl apply -f kubernetes/deployment.yaml -n ${{ secrets.KUBE_NAMESPACE }} --validate=false
-          kubectl apply -f kubernetes/service.yaml -n ${{ secrets.KUBE_NAMESPACE }} --validate=false
-          
+          kubectl get pods -n test
 
