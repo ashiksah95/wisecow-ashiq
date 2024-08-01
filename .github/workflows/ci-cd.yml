@@ -49,7 +49,7 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
           cat ${HOME}/.kube/config
       - name: use context
-        run: kubectl config use-context octobay-api
+        run: kubectl config use-context kubernetes-admin@kubernetes
 
       - name: Deploy to Kubernetes
         run: |
