@@ -57,7 +57,7 @@ jobs:
           kubectl get nodes
 
       - name: Deploy to Kubernetes
-        run: |
+      -  run: |
           kubectl apply -f kubernetes/deployment.yaml --validate=false
           kubectl apply -f kubernetes/service.yaml --validate=false
           kubectl apply -f kubernetes/ingress.yaml --validate=false
