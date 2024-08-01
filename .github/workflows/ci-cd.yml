@@ -53,9 +53,6 @@ jobs:
       - name: use context
         run: kubectl config use-context kubernetes-admin@kubernetes
 
-      - name: Use Kubernetes context
-        run: kubectl config use-context ${{ env.KUBE_CONTEXT }}
-
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f kubernetes/deployment.yaml -n ${{ secrets.KUBE_NAMESPACE }} 
